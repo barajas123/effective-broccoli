@@ -1,0 +1,15 @@
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+  - name: lint
+    image: python:3.11
+    commands:
+      - pip install black
+      - black --check .
+
+  - name: run
+    image: python:3.11
+    commands:
+      - python hello.py
