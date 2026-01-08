@@ -1,10 +1,24 @@
 kind: pipeline
-type: kubernetes
-name: default
+type: docker
+name: patch-build
+
+trigger:
+  branch:
+    - patch-*
 
 steps:
   - name: lint
-    image: python:3.11
+    image: node:20
     commands:
-      - pip install black
-      - black --check .
+      - npm ci
+      - npm run lint
+
+  - name: test
+    image: node:20
+    commands:
+      - npm test
+
+  - name: build
+    image: node:20
+    commands:
+      - npm run build
