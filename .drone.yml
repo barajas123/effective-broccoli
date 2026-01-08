@@ -16,4 +16,4 @@ steps:
   - name: run
     image: python:3.11-slim
     commands:
-      - python hello.py
+      - python main.py
