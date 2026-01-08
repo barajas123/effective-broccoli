@@ -10,6 +10,6 @@ steps:
       - black --check .
 
   - name: run
-    image: python:3.11
+    image: python:3.12
     commands:
       - python hello.py
