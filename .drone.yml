@@ -4,7 +4,7 @@ name: default
 
 steps:
   - name: lint
-    image: python:3.11
+    image: python:3.12
     commands:
       - pip install black
       - black --check .
