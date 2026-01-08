@@ -8,12 +8,12 @@ workspace:
 
 steps:
   - name: lint
-    image: python:3.12
+    image: python:3.11-slim
     commands:
       - pip install black
       - black --check .
 
   - name: run
-    image: python:3.12
+    image: python:3.11-slim
     commands:
       - python hello.py
