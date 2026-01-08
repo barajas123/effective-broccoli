@@ -2,6 +2,10 @@ kind: pipeline
 type: kubernetes
 name: default
 
+workspace:
+  base: /drone/src
+  path: .
+
 steps:
   - name: lint
     image: python:3.12
