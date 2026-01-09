@@ -10,10 +10,17 @@ steps:
   - name: lint
     image: python:3.11-slim
     commands:
-      - pip install black
+      - pip install --no-cache-dir black
       - black --check .
+
+  - name: test
+    image: python:3.11-slim
+    commands:
+      - pip install --no-cache-dir pytest
+      - pytest -q
 
   - name: run
     image: python:3.11-slim
     commands:
-      - python main.py
+      - python hello.py
+
